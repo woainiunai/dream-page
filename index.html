@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<div id="box" onclick="changeText()">梦里你说要走，TA笑着点头，醒来后枕头湿了一半。</div>
+<div id="box">梦里你说要走，TA笑着点头，醒来后枕头湿了一半。</div>
 
 <script>
   const sentences = [
@@ -44,15 +44,15 @@
     "TA说梦见你牵着别人的手，那晚他不敢睡觉了。"
   ];
 
-  function changeText() {
-    const box = document.getElementById('box');
-    const current = box.innerText;
-    let next;
-    do {
+  const box = document.getElementById("box");
+  box.addEventListener("click", () => {
+    let current = box.innerText;
+    let next = current;
+    while (next === current) {
       next = sentences[Math.floor(Math.random() * sentences.length)];
-    } while (next === current);
+    }
     box.innerText = next;
-  }
+  });
 </script>
 
 </body>
