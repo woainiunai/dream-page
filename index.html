@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>TA梦见你了</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: "微软雅黑", sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .bubble {
+      padding: 30px;
+      background: #ffffffaa;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 0 20px #ffb6c1;
+    }
+    .dream {
+      font-size: 18px;
+      color: #ff69b4;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="bubble">
+    <p class="dream" id="dreamText">正在召唤梦境中...</p>
+  </div>
+
+  <script>
+    const dreams = [
+      "TA梦见你在月光下离开了，TA追不上你。\n醒来后TA只记得你说：'别回头了。'",
+      "梦里你们重逢在老地方，TA握住你的手，说了一句：‘你怎么才来。’",
+      "TA梦见你哭了，却说不出一句安慰，只能默默抱住你。",
+      "梦里你说你要走，TA笑着点头，醒来后枕头湿了一半。"
+    ];
+    const random = dreams[Math.floor(Math.random() * dreams.length)];
+    document.getElementById("dreamText").textContent = random;
+  </script>
+</body>
+</html>
