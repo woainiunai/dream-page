@@ -19,6 +19,16 @@
       align-items: center;
       justify-content: center;
     }
+<audio id="bgm" src="https://cdn.pixabay.com/download/audio/2022/10/31/audio_b00aa30002.mp3" loop></audio>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  document.body.addEventListener("click", () => {
+    bgm.play();
+  }, { once: true });
+</script>
+
+    
     #quoteBox {
       background: rgba(255, 255, 255, 0.8);
       padding: 50px;
