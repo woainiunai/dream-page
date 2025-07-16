@@ -1,69 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>TA梦见你</title>
+  <title>夢境随机言</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'CutePixel';
-      src: url('https://cdn.jsdelivr.net/gh/Chokcoco/fonts@master/04b_19.ttf') format('truetype');
-    }
-
     body {
       margin: 0;
       padding: 0;
-      font-family: 'CutePixel', sans-serif;
-      background-image: url('IMG_2307.PNG');
+      background-image: url('https://woainiunai.github.io/dream-page/IMG_2307.PNG');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      font-family: 'Press Start 2P', cursive;
+      color: pink;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
-
-    #box {
-      background: rgba(255, 255, 255, 0.7);
+    #quoteBox {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 30px;
       border-radius: 20px;
-      padding: 40px;
-      color: #ff7eb9;
-      font-size: 24px;
+      box-shadow: 0 0 20px pink;
       text-align: center;
-      max-width: 80%;
-      box-shadow: 0 0 20px #ffb3d9;
+      max-width: 700px;
+      font-size: 12px;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease;
     }
-
-    #box:hover {
-      transform: scale(1.02);
+    #quoteBox:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div id="box">点击查看 TA 的梦</div>
+  <div id="quoteBox" onclick="newQuote()">
+    梦里你说你要走，TA笑着点头，醒来后枕头湿了一半。
+  </div>
 
   <script>
-    const sentences = [
-      "梦里你说你要走，TA笑着点头，醒来后枕头湿了一半。",
-      "TA梦见你背着TA许了一个愿，说：希望TA不要再梦见我了。",
-      "梦里TA悄悄牵起了你的手，醒来后手心都是汗。",
-      "你在梦里轻轻说晚安，TA醒来后眼泪停不下来。"
+    const quotes = [
+      "TA梦见你背着TA许了一个愿，说：\"希望TA不要再梦见你了\"。",
+      "TA和你坐在曲线轨道的末端喝奶茶，没说一句话。",
+      "你说要离开，TA笑着给你打包。",
+      "梦里你拿着租房合同给TA签完了，醒来发现什么都没有。",
+      "TA在梦里抱你、得了反对、痛哭、放手。"
     ];
-
-    const box = document.getElementById("box");
-    let lastIndex = -1;
-
-    box.addEventListener("click", () => {
-      let index;
-      do {
-        index = Math.floor(Math.random() * sentences.length);
-      } while (index === lastIndex);
-      lastIndex = index;
-      box.innerText = sentences[index];
-    });
+    function newQuote() {
+      const box = document.getElementById("quoteBox");
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      box.innerText = quotes[randomIndex];
+    }
   </script>
 </body>
 </html>
-
