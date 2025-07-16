@@ -2,58 +2,68 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>梦境生成器</title>
+  <title>TA梦见你</title>
   <style>
+    @font-face {
+      font-family: 'CutePixel';
+      src: url('https://cdn.jsdelivr.net/gh/Chokcoco/fonts@master/04b_19.ttf') format('truetype');
+    }
+
     body {
-      background-color: #ffeeee;
+      margin: 0;
+      padding: 0;
+      font-family: 'CutePixel', sans-serif;
+      background-image: url('IMG_2307.PNG');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
     }
+
     #box {
-      background: #fff0f5;
-      padding: 30px;
+      background: rgba(255, 255, 255, 0.7);
       border-radius: 20px;
-      box-shadow: 0 0 20px #f8b0c6;
-      font-size: 20px;
-      color: #ff4da6;
-      cursor: pointer;
+      padding: 40px;
+      color: #ff7eb9;
+      font-size: 24px;
       text-align: center;
       max-width: 80%;
-      transition: 0.3s;
+      box-shadow: 0 0 20px #ffb3d9;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
+
     #box:hover {
-      box-shadow: 0 0 25px #ff99cc;
+      transform: scale(1.02);
     }
   </style>
 </head>
 <body>
+  <div id="box">点击查看 TA 的梦</div>
 
-<div id="box">梦里你说要走，TA笑着点头，醒来后枕头湿了一半。</div>
+  <script>
+    const sentences = [
+      "梦里你说你要走，TA笑着点头，醒来后枕头湿了一半。",
+      "TA梦见你背着TA许了一个愿，说：希望TA不要再梦见我了。",
+      "梦里TA悄悄牵起了你的手，醒来后手心都是汗。",
+      "你在梦里轻轻说晚安，TA醒来后眼泪停不下来。"
+    ];
 
-<script>
-  const sentences = [
-    "梦里你说要走，TA笑着点头，醒来后枕头湿了一半。",
-    "你走后，TA开始梦到你两次。一次是哭着醒的。",
-    "TA梦见你没走，一觉醒来，整个房间都空了。",
-    "TA在梦里拉着你不放，你回头说‘我们不是约好不见了吗？’",
-    "梦里你躺在TA肩上，醒来发现只是一只抱枕。",
-    "你梦里说‘我没走’，可现实却没有你。",
-    "TA说梦见你牵着别人的手，那晚他不敢睡觉了。"
-  ];
+    const box = document.getElementById("box");
+    let lastIndex = -1;
 
-  const box = document.getElementById("box");
-  box.addEventListener("click", () => {
-    let current = box.innerText;
-    let next = current;
-    while (next === current) {
-      next = sentences[Math.floor(Math.random() * sentences.length)];
-    }
-    box.innerText = next;
-  });
-</script>
-
+    box.addEventListener("click", () => {
+      let index;
+      do {
+        index = Math.floor(Math.random() * sentences.length);
+      } while (index === lastIndex);
+      lastIndex = index;
+      box.innerText = sentences[index];
+    });
+  </script>
 </body>
 </html>
+
